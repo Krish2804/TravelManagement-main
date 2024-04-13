@@ -1,0 +1,36 @@
+// @mui
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+//
+import AddTripTextfield from './addtriptextfield';
+
+// ----------------------------------------------------------------------
+
+const TABS = [
+  {
+    value: 'outlined',
+    label: 'Outlined',
+    component: <AddTripTextfield variant="outlined" />,
+  },
+];
+
+// ----------------------------------------------------------------------
+
+export default function AddTripTextfieldView() {
+  const currentTab = "outlined";
+
+  return (
+    <Container>
+      <form noValidate autoComplete="off">
+        {TABS.map(
+          (tab) =>
+            tab.value === currentTab && (
+              <Box key={tab.value} sx={{my: 5}}>
+                {tab.component}
+              </Box>
+            )
+        )}
+      </form>
+    </Container>
+  );
+}
